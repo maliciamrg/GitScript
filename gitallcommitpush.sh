@@ -10,10 +10,11 @@ for f in ./*;
 	if [ -d $f ]; then
 	cd $f
 	if [ -d .git ]; then
-      echo $f >> $outfile
+      echo "=====> $f <=====" >> $outfile
 	  git add -A >> $outfile
 	  git commit -am  "gitallcommitpush" >> $outfile
 	  git push >> $outfile
+	  git pull >> $outfile
 	fi;
 	cd ..
 	fi;
