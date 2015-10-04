@@ -79,14 +79,16 @@ $GHBU_SILENT || (echo "" && echo "=== DONE ===" && echo "")
 
 
 $GHBU_SILENT || (echo "" && echo "=== MISSING GITHUB ===" && echo "")
-for f in $1/*;
-  do
+for f in $1/*;do
 	if [ -d $f ]; then
-	if [ ! -d "$1/$f/.git" ]; then
-		$GHBU_SILENT || echo "Missing GITHUB ${GHBU_ORG}/$f"
+#		$GHBU_SILENT || echo "GITHUB $f"
+		if [ ! -d "$f/.git" ]; then
+#			$GHBU_SILENT || echo "$f/.git"
+#		else 
+			$GHBU_SILENT || echo "Missing GITHUB ${GHBU_ORG}/$f"
+		fi;
 	fi;
-	fi;
-  done;
+ done;
 $GHBU_SILENT || (echo "" && echo "=== DONE ===" && echo "")
 
 $GHBU_SILENT || (echo "GitHub Clonning completed." && echo "")
