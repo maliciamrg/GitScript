@@ -87,6 +87,43 @@ for f in $1/*;do
 #		else 
 			$GHBU_SILENT || echo "Missing GITHUB ${GHBU_ORG}/$f"
 		fi;
+		if [ ! -d "$f/src" ]; then
+			mkdir "$f/src"
+			$GHBU_SILENT || echo "Missing GITHUB src : $f"
+		fi;
+		if [ ! -d "$f/bin" ]; then
+			mkdir "$f/bin"
+			$GHBU_SILENT || echo "Missing GITHUB bin : $f"
+		fi;
+		if [ ! -e "$f/.classpath" ]; then
+echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+<classpath>
+	<classpathentry kind=\"src\" path=\"\src\"/>
+	<classpathentry kind=\"con\" path=\"org.eclipse.jdt.launching.JRE_CONTAINER\"/>
+	<classpathentry kind=\"output\" path=\"bin\"/>
+</classpath>" > "$f/.classpath"
+			$GHBU_SILENT || echo "Missing GITHUB classpath : $f"
+		fi;
+		if [ ! -e "$f/.project" ]; then
+echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+<projectDescription>
+	<name>$(basename $f)</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+</projectDescription>" > "$f/.project"
+			$GHBU_SILENT || echo "Missing GITHUB project : $f"
+		fi;
 	fi;
  done;
 $GHBU_SILENT || (echo "" && echo "=== DONE ===" && echo "")
