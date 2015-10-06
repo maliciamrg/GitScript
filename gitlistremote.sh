@@ -1,10 +1,4 @@
 #!/bin/bash
-<<<<<<< HEAD
-rm ./gitlistremote.txt
-for f in ./*;
-  do
-     [ -d $f ] && cd $f && echo $f >> ../gitlistremote.txt && git remote -v  >> ../gitlistremote.txt && cd ..
-=======
 if [ "$#" -ne 1 ]; then
     echo "Illegal number of parameters (repertoire des git)"
 	exit 0
@@ -21,5 +15,4 @@ for f in ./*;
 	fi;
 	cd ..
 	fi;
->>>>>>> e96577a761ae74ca8b8aa69e470ca63149ed7502
   done;

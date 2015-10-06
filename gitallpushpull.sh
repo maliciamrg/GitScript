@@ -1,10 +1,4 @@
 #!/bin/bash
-<<<<<<< HEAD
-rm ./gitpushpull.txt
-for f in ./*;
-  do
-     [ -d $f ] && cd $f && echo $f >> ../gitpushpull.txt && git pull >> ../gitpushpull.txt &&  git push >> ../gitpushpull.txt && cd ..
-=======
 if [ "$#" -ne 1 ]; then
     echo "Illegal number of parameters (repertoire des git)"
 	exit 0
@@ -23,5 +17,4 @@ for f in ./*;
 	fi;
 	cd ..
 	fi;
->>>>>>> e96577a761ae74ca8b8aa69e470ca63149ed7502
   done;
