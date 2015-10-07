@@ -1,6 +1,6 @@
 #!/bin/bash
-if [ "$#" -ne 1 ]; then
-    echo "Illegal number of parameters (repertoire des git)"
+if [ "$#" -ne 2 ]; then
+    echo "Illegal number of parameters (repertoire des git / \"message\""
 	exit 0
 fi
 cd $1
@@ -12,7 +12,7 @@ for f in ./*;
 	if [ -d .git ]; then
       echo "=====> $f <=====" >> $outfile
 	  git add -A >> $outfile
-	  git commit -am  "gitallcommitpush" >> $outfile
+	  git commit -am  "gitallcommitpush $2" >> $outfile
 	  git push >> $outfile
 	  git pull >> $outfile
 	fi;
