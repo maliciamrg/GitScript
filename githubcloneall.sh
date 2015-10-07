@@ -124,6 +124,21 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
 </projectDescription>" > "$f/.project"
 			$GHBU_SILENT || echo "Missing GITHUB project : $f"
 		fi;
+		if [ ! -e "$f/.gitignore" ]; then
+echo "" > "$f/.gitignore"
+			$GHBU_SILENT || echo "Missing GITHUB gitignore : $f"
+		fi;	
+		if grep -q "ignore_for_eclipse" "$f/.gitignore"; then
+a=a
+		else
+echo "
+# ignore_for_eclipse
+/bin/
+.classpath
+.project
+" >> "$f/.gitignore"
+			$GHBU_SILENT || echo "Missing GITHUB ignore_for_eclipse : $f"
+		fi;	
 	fi;
  done;
 $GHBU_SILENT || (echo "" && echo "=== DONE ===" && echo "")
