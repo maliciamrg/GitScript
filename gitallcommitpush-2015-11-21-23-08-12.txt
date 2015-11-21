@@ -1,0 +1,439 @@
+=====> ./SickRage <=====
+Sur la branche master
+Votre branche est à jour avec 'origin/master'.
+rien à valider, la copie de travail est propre
+Mise à jour d0e3a1a..78fdf42
+Fast-forward
+ .travis.yml                                        |    2 +-
+ CHANGES.md                                         |    1 -
+ TODO.txt                                           |   21 -
+ autoProcessTV/autoProcessTV.cfg.sample             |    7 -
+ autoProcessTV/autoProcessTV.py                     |  150 -
+ autoProcessTV/hellaToSickBeard.py                  |   35 -
+ autoProcessTV/lib/__init__.py                      |    1 -
+ autoProcessTV/lib/requests/__init__.py             |   77 -
+ autoProcessTV/lib/requests/adapters.py             |  437 --
+ autoProcessTV/lib/requests/api.py                  |  146 -
+ autoProcessTV/lib/requests/auth.py                 |  211 -
+ autoProcessTV/lib/requests/cacert.pem              | 5026 --------------------
+ autoProcessTV/lib/requests/certs.py                |   25 -
+ autoProcessTV/lib/requests/compat.py               |   62 -
+ autoProcessTV/lib/requests/cookies.py              |  463 --
+ autoProcessTV/lib/requests/exceptions.py           |   99 -
+ autoProcessTV/lib/requests/hooks.py                |   45 -
+ autoProcessTV/lib/requests/models.py               |  842 ----
+ autoProcessTV/lib/requests/packages/__init__.py    |  107 -
+ .../lib/requests/packages/chardet/__init__.py      |   32 -
+ .../lib/requests/packages/chardet/big5freq.py      |  925 ----
+ .../lib/requests/packages/chardet/big5prober.py    |   42 -
+ .../lib/requests/packages/chardet/chardetect.py    |   80 -
+ .../requests/packages/chardet/chardistribution.py  |  231 -
+ .../packages/chardet/charsetgroupprober.py         |  106 -
+ .../lib/requests/packages/chardet/charsetprober.py |   62 -
+ .../packages/chardet/codingstatemachine.py         |   61 -
+ .../lib/requests/packages/chardet/compat.py        |   34 -
+ .../lib/requests/packages/chardet/constants.py     |   39 -
+ .../lib/requests/packages/chardet/cp949prober.py   |   44 -
+ .../lib/requests/packages/chardet/escprober.py     |   86 -
+ .../lib/requests/packages/chardet/escsm.py         |  242 -
+ .../lib/requests/packages/chardet/eucjpprober.py   |   90 -
+ .../lib/requests/packages/chardet/euckrfreq.py     |  596 ---
+ .../lib/requests/packages/chardet/euckrprober.py   |   42 -
+ .../lib/requests/packages/chardet/euctwfreq.py     |  428 --
+ .../lib/requests/packages/chardet/euctwprober.py   |   41 -
+ .../lib/requests/packages/chardet/gb2312freq.py    |  472 --
+ .../lib/requests/packages/chardet/gb2312prober.py  |   41 -
+ .../lib/requests/packages/chardet/hebrewprober.py  |  283 --
+ .../lib/requests/packages/chardet/jisfreq.py       |  569 ---
+ .../lib/requests/packages/chardet/jpcntx.py        |  227 -
+ .../packages/chardet/langbulgarianmodel.py         |  229 -
+ .../requests/packages/chardet/langcyrillicmodel.py |  329 --
+ .../requests/packages/chardet/langgreekmodel.py    |  225 -
+ .../requests/packages/chardet/langhebrewmodel.py   |  201 -
+ .../packages/chardet/langhungarianmodel.py         |  225 -
+ .../lib/requests/packages/chardet/langthaimodel.py |  200 -
+ .../lib/requests/packages/chardet/latin1prober.py  |  139 -
+ .../requests/packages/chardet/mbcharsetprober.py   |   86 -
+ .../requests/packages/chardet/mbcsgroupprober.py   |   54 -
+ .../lib/requests/packages/chardet/mbcssm.py        |  572 ---
+ .../requests/packages/chardet/sbcharsetprober.py   |  120 -
+ .../requests/packages/chardet/sbcsgroupprober.py   |   69 -
+ .../lib/requests/packages/chardet/sjisprober.py    |   91 -
+ .../requests/packages/chardet/universaldetector.py |  170 -
+ .../lib/requests/packages/chardet/utf8prober.py    |   76 -
+ .../lib/requests/packages/urllib3/__init__.py      |   66 -
+ .../lib/requests/packages/urllib3/_collections.py  |  320 --
+ .../lib/requests/packages/urllib3/connection.py    |  262 -
+ .../requests/packages/urllib3/connectionpool.py    |  796 ----
+ .../requests/packages/urllib3/contrib/__init__.py  |    0
+ .../requests/packages/urllib3/contrib/ntlmpool.py  |  114 -
+ .../requests/packages/urllib3/contrib/pyopenssl.py |  308 --
+ .../lib/requests/packages/urllib3/exceptions.py    |  164 -
+ .../lib/requests/packages/urllib3/fields.py        |  177 -
+ .../lib/requests/packages/urllib3/filepost.py      |   93 -
+ .../requests/packages/urllib3/packages/__init__.py |    4 -
+ .../packages/urllib3/packages/ordered_dict.py      |  259 -
+ .../lib/requests/packages/urllib3/packages/six.py  |  385 --
+ .../packages/ssl_match_hostname/__init__.py        |   13 -
+ .../packages/ssl_match_hostname/_implementation.py |  105 -
+ .../lib/requests/packages/urllib3/poolmanager.py   |  280 --
+ .../lib/requests/packages/urllib3/request.py       |  141 -
+ .../lib/requests/packages/urllib3/response.py      |  353 --
+ .../lib/requests/packages/urllib3/util/__init__.py |   24 -
+ .../requests/packages/urllib3/util/connection.py   |   98 -
+ .../lib/requests/packages/urllib3/util/request.py  |   71 -
+ .../lib/requests/packages/urllib3/util/response.py |   22 -
+ .../lib/requests/packages/urllib3/util/retry.py    |  285 --
+ .../lib/requests/packages/urllib3/util/ssl_.py     |  266 --
+ .../lib/requests/packages/urllib3/util/timeout.py  |  240 -
+ .../lib/requests/packages/urllib3/util/url.py      |  212 -
+ autoProcessTV/lib/requests/sessions.py             |  685 ---
+ autoProcessTV/lib/requests/status_codes.py         |   89 -
+ autoProcessTV/lib/requests/structures.py           |  104 -
+ autoProcessTV/lib/requests/utils.py                |  707 ---
+ autoProcessTV/mediaToSickbeard.py                  |  242 -
+ autoProcessTV/sabToSickBeard.py                    |   38 -
+ autoProcessTV/setup.py                             |   15 -
+ gui/slick/images/network/musiqueplus.png           |  Bin 0 -> 1058 bytes
+ gui/slick/images/providers/gftracker.png           |  Bin 0 -> 1620 bytes
+ gui/slick/images/providers/hdspace.png             |  Bin 0 -> 2235 bytes
+ gui/slick/images/providers/newpct.png              |  Bin 0 -> 3684 bytes
+ gui/slick/js/browser.js                            |   10 +-
+ gui/slick/js/new/config_search.js                  |    1 -
+ gui/slick/js/new/core.js                           |   11 +-
+ gui/slick/views/config_general.mako                |   11 +
+ gui/slick/views/config_providers.mako              |   16 +-
+ gui/slick/views/config_search.mako                 |   42 +
+ gui/slick/views/editShow.mako                      |    1 +
+ gui/slick/views/home.mako                          |   67 +-
+ gui/slick/views/layouts/main.mako                  |   20 +-
+ gui/slick/views/manage_massEdit.mako               |  406 +-
+ {tornado => lib/tornado}/__init__.py               |    0
+ {tornado => lib/tornado}/auth.py                   |    0
+ {tornado => lib/tornado}/autoreload.py             |    0
+ {tornado => lib/tornado}/concurrent.py             |    0
+ {tornado => lib/tornado}/curl_httpclient.py        |    0
+ {tornado => lib/tornado}/escape.py                 |    0
+ {tornado => lib/tornado}/gen.py                    |    0
+ {tornado => lib/tornado}/http1connection.py        |    0
+ {tornado => lib/tornado}/httpclient.py             |    0
+ {tornado => lib/tornado}/httpserver.py             |    0
+ {tornado => lib/tornado}/httputil.py               |    0
+ {tornado => lib/tornado}/ioloop.py                 |    0
+ {tornado => lib/tornado}/iostream.py               |    0
+ {tornado => lib/tornado}/locale.py                 |    0
+ {tornado => lib/tornado}/locks.py                  |    0
+ {tornado => lib/tornado}/log.py                    |    0
+ {tornado => lib/tornado}/netutil.py                |    0
+ {tornado => lib/tornado}/options.py                |    0
+ {tornado/test => lib/tornado/platform}/__init__.py |    0
+ {tornado => lib/tornado}/platform/asyncio.py       |    0
+ {tornado => lib/tornado}/platform/auto.py          |    0
+ {tornado => lib/tornado}/platform/caresresolver.py |    0
+ {tornado => lib/tornado}/platform/common.py        |    0
+ {tornado => lib/tornado}/platform/epoll.py         |    0
+ {tornado => lib/tornado}/platform/interface.py     |    0
+ {tornado => lib/tornado}/platform/kqueue.py        |    0
+ {tornado => lib/tornado}/platform/posix.py         |    0
+ {tornado => lib/tornado}/platform/select.py        |    0
+ {tornado => lib/tornado}/platform/twisted.py       |    0
+ {tornado => lib/tornado}/platform/windows.py       |    0
+ {tornado => lib/tornado}/process.py                |    0
+ {tornado => lib/tornado}/queues.py                 |    0
+ {tornado => lib/tornado}/routes.py                 |    0
+ {tornado => lib/tornado}/simple_httpclient.py      |    0
+ {tornado => lib/tornado}/speedups.c                |    0
+ {tornado => lib/tornado}/stack_context.py          |    0
+ {tornado => lib/tornado}/tcpclient.py              |    0
+ {tornado => lib/tornado}/tcpserver.py              |    0
+ {tornado => lib/tornado}/template.py               |    0
+ {tornado/platform => lib/tornado/test}/__init__.py |    0
+ {tornado => lib/tornado}/test/__main__.py          |    0
+ {tornado => lib/tornado}/test/asyncio_test.py      |    0
+ {tornado => lib/tornado}/test/auth_test.py         |    0
+ {tornado => lib/tornado}/test/concurrent_test.py   |    0
+ .../tornado}/test/csv_translations/fr_FR.csv       |    0
+ .../tornado}/test/curl_httpclient_test.py          |    0
+ {tornado => lib/tornado}/test/escape_test.py       |    0
+ {tornado => lib/tornado}/test/gen_test.py          |    0
+ .../fr_FR/LC_MESSAGES/tornado_test.mo              |  Bin
+ .../fr_FR/LC_MESSAGES/tornado_test.po              |    0
+ {tornado => lib/tornado}/test/httpclient_test.py   |    0
+ {tornado => lib/tornado}/test/httpserver_test.py   |    0
+ {tornado => lib/tornado}/test/httputil_test.py     |    0
+ {tornado => lib/tornado}/test/import_test.py       |    0
+ {tornado => lib/tornado}/test/ioloop_test.py       |    0
+ {tornado => lib/tornado}/test/iostream_test.py     |    0
+ {tornado => lib/tornado}/test/locale_test.py       |    0
+ {tornado => lib/tornado}/test/locks_test.py        |    0
+ {tornado => lib/tornado}/test/log_test.py          |    0
+ {tornado => lib/tornado}/test/netutil_test.py      |    0
+ {tornado => lib/tornado}/test/options_test.cfg     |    0
+ {tornado => lib/tornado}/test/options_test.py      |    0
+ {tornado => lib/tornado}/test/process_test.py      |    0
+ {tornado => lib/tornado}/test/queues_test.py       |    0
+ .../tornado}/test/resolve_test_helper.py           |    0
+ {tornado => lib/tornado}/test/runtests.py          |    0
+ .../tornado}/test/simple_httpclient_test.py        |    0
+ .../tornado}/test/stack_context_test.py            |    0
+ .../tornado}/test/static/dir/index.html            |    0
+ {tornado => lib/tornado}/test/static/robots.txt    |    0
+ {tornado => lib/tornado}/test/static_foo.txt       |    0
+ {tornado => lib/tornado}/test/tcpclient_test.py    |    0
+ {tornado => lib/tornado}/test/tcpserver_test.py    |    0
+ {tornado => lib/tornado}/test/template_test.py     |    0
+ {tornado => lib/tornado}/test/templates/utf8.html  |    0
+ {tornado => lib/tornado}/test/test.crt             |    0
+ {tornado => lib/tornado}/test/test.key             |    0
+ {tornado => lib/tornado}/test/testing_test.py      |    0
+ {tornado => lib/tornado}/test/twisted_test.py      |    0
+ {tornado => lib/tornado}/test/util.py              |    0
+ {tornado => lib/tornado}/test/util_test.py         |    0
+ {tornado => lib/tornado}/test/web_test.py          |    0
+ {tornado => lib/tornado}/test/websocket_test.py    |    0
+ {tornado => lib/tornado}/test/wsgi_test.py         |    0
+ {tornado => lib/tornado}/testing.py                |    0
+ {tornado => lib/tornado}/util.py                   |    0
+ {tornado => lib/tornado}/web.py                    |    0
+ {tornado => lib/tornado}/websocket.py              |    0
+ {tornado => lib/tornado}/wsgi.py                   |    0
+ news.md                                            |    1 -
+ readme.md                                          |    7 +-
+ sickbeard/__init__.py                              |   99 +-
+ sickbeard/common.py                                |   26 +-
+ sickbeard/dailysearcher.py                         |   21 +-
+ sickbeard/db.py                                    |    1 -
+ sickbeard/failedProcessor.py                       |    1 -
+ sickbeard/helpers.py                               |   80 +-
+ sickbeard/logger.py                                |    9 +-
+ sickbeard/metadata/__init__.py                     |    8 +-
+ sickbeard/metadata/generic.py                      |   79 +-
+ sickbeard/metadata/kodi.py                         |   11 +-
+ sickbeard/metadata/kodi_12plus.py                  |   15 +-
+ sickbeard/metadata/mede8er.py                      |   30 +-
+ sickbeard/metadata/mediabrowser.py                 |   26 +-
+ sickbeard/metadata/ps3.py                          |    9 +-
+ sickbeard/metadata/tivo.py                         |   13 +-
+ sickbeard/metadata/wdtv.py                         |   19 +-
+ sickbeard/name_parser/parser.py                    |    7 +-
+ sickbeard/name_parser/regexes.py                   |   19 +-
+ sickbeard/network_timezones.py                     |   10 +-
+ sickbeard/notifiers/freemobile.py                  |   14 +-
+ sickbeard/nzbSplitter.py                           |    1 -
+ sickbeard/nzbget.py                                |    4 +
+ sickbeard/postProcessor.py                         |   60 +-
+ sickbeard/processTV.py                             |    3 +-
+ sickbeard/providers/__init__.py                    |   10 +-
+ sickbeard/providers/extratorrent.py                |    4 +-
+ sickbeard/providers/generic.py                     |    8 +-
+ sickbeard/providers/gftracker.py                   |  204 +
+ sickbeard/providers/hdspace.py                     |  200 +
+ sickbeard/providers/hdtorrents.py                  |  132 +-
+ sickbeard/providers/kat.py                         |   28 +-
+ sickbeard/providers/libertalia.py                  |    3 +-
+ sickbeard/providers/newpct.py                      |  188 +
+ sickbeard/providers/thepiratebay.py                |    1 -
+ sickbeard/providers/tntvillage.py                  |    2 +-
+ sickbeard/providers/torrentz.py                    |    2 +-
+ sickbeard/rssfeeds.py                              |    1 -
+ sickbeard/sab.py                                   |    9 +
+ sickbeard/sbdatetime.py                            |   57 +-
+ sickbeard/search.py                                |    1 -
+ sickbeard/searchBacklog.py                         |    1 -
+ sickbeard/search_queue.py                          |   33 +-
+ sickbeard/show_queue.py                            |    1 -
+ sickbeard/tv.py                                    |  250 +-
+ sickbeard/tvcache.py                               |    1 -
+ sickbeard/versionChecker.py                        |  203 +-
+ sickbeard/webapi.py                                |  163 +-
+ sickbeard/webserve.py                              |  853 ++--
+ tests/name_parser_tests.py                         |  433 +-
+ tests/test_lib.py                                  |    5 +-
+ 245 files changed, 2388 insertions(+), 23817 deletions(-)
+ delete mode 100644 CHANGES.md
+ delete mode 100644 TODO.txt
+ delete mode 100644 autoProcessTV/autoProcessTV.cfg.sample
+ delete mode 100755 autoProcessTV/autoProcessTV.py
+ delete mode 100755 autoProcessTV/hellaToSickBeard.py
+ delete mode 100644 autoProcessTV/lib/__init__.py
+ delete mode 100644 autoProcessTV/lib/requests/__init__.py
+ delete mode 100644 autoProcessTV/lib/requests/adapters.py
+ delete mode 100644 autoProcessTV/lib/requests/api.py
+ delete mode 100644 autoProcessTV/lib/requests/auth.py
+ delete mode 100644 autoProcessTV/lib/requests/cacert.pem
+ delete mode 100644 autoProcessTV/lib/requests/certs.py
+ delete mode 100644 autoProcessTV/lib/requests/compat.py
+ delete mode 100644 autoProcessTV/lib/requests/cookies.py
+ delete mode 100644 autoProcessTV/lib/requests/exceptions.py
+ delete mode 100644 autoProcessTV/lib/requests/hooks.py
+ delete mode 100644 autoProcessTV/lib/requests/models.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/__init__.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/chardet/__init__.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/chardet/big5freq.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/chardet/big5prober.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/chardet/chardetect.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/chardet/chardistribution.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/chardet/charsetgroupprober.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/chardet/charsetprober.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/chardet/codingstatemachine.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/chardet/compat.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/chardet/constants.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/chardet/cp949prober.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/chardet/escprober.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/chardet/escsm.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/chardet/eucjpprober.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/chardet/euckrfreq.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/chardet/euckrprober.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/chardet/euctwfreq.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/chardet/euctwprober.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/chardet/gb2312freq.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/chardet/gb2312prober.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/chardet/hebrewprober.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/chardet/jisfreq.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/chardet/jpcntx.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/chardet/langbulgarianmodel.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/chardet/langcyrillicmodel.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/chardet/langgreekmodel.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/chardet/langhebrewmodel.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/chardet/langhungarianmodel.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/chardet/langthaimodel.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/chardet/latin1prober.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/chardet/mbcharsetprober.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/chardet/mbcsgroupprober.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/chardet/mbcssm.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/chardet/sbcharsetprober.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/chardet/sbcsgroupprober.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/chardet/sjisprober.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/chardet/universaldetector.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/chardet/utf8prober.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/urllib3/__init__.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/urllib3/_collections.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/urllib3/connection.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/urllib3/connectionpool.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/urllib3/contrib/__init__.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/urllib3/contrib/ntlmpool.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/urllib3/contrib/pyopenssl.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/urllib3/exceptions.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/urllib3/fields.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/urllib3/filepost.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/urllib3/packages/__init__.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/urllib3/packages/ordered_dict.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/urllib3/packages/six.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/urllib3/packages/ssl_match_hostname/__init__.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/urllib3/packages/ssl_match_hostname/_implementation.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/urllib3/poolmanager.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/urllib3/request.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/urllib3/response.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/urllib3/util/__init__.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/urllib3/util/connection.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/urllib3/util/request.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/urllib3/util/response.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/urllib3/util/retry.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/urllib3/util/ssl_.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/urllib3/util/timeout.py
+ delete mode 100644 autoProcessTV/lib/requests/packages/urllib3/util/url.py
+ delete mode 100644 autoProcessTV/lib/requests/sessions.py
+ delete mode 100644 autoProcessTV/lib/requests/status_codes.py
+ delete mode 100644 autoProcessTV/lib/requests/structures.py
+ delete mode 100644 autoProcessTV/lib/requests/utils.py
+ delete mode 100755 autoProcessTV/mediaToSickbeard.py
+ delete mode 100755 autoProcessTV/sabToSickBeard.py
+ delete mode 100755 autoProcessTV/setup.py
+ create mode 100644 gui/slick/images/network/musiqueplus.png
+ create mode 100644 gui/slick/images/providers/gftracker.png
+ create mode 100644 gui/slick/images/providers/hdspace.png
+ create mode 100644 gui/slick/images/providers/newpct.png
+ rename {tornado => lib/tornado}/__init__.py (100%)
+ rename {tornado => lib/tornado}/auth.py (100%)
+ rename {tornado => lib/tornado}/autoreload.py (100%)
+ rename {tornado => lib/tornado}/concurrent.py (100%)
+ rename {tornado => lib/tornado}/curl_httpclient.py (100%)
+ rename {tornado => lib/tornado}/escape.py (100%)
+ rename {tornado => lib/tornado}/gen.py (100%)
+ rename {tornado => lib/tornado}/http1connection.py (100%)
+ rename {tornado => lib/tornado}/httpclient.py (100%)
+ rename {tornado => lib/tornado}/httpserver.py (100%)
+ rename {tornado => lib/tornado}/httputil.py (100%)
+ rename {tornado => lib/tornado}/ioloop.py (100%)
+ rename {tornado => lib/tornado}/iostream.py (100%)
+ rename {tornado => lib/tornado}/locale.py (100%)
+ rename {tornado => lib/tornado}/locks.py (100%)
+ rename {tornado => lib/tornado}/log.py (100%)
+ rename {tornado => lib/tornado}/netutil.py (100%)
+ rename {tornado => lib/tornado}/options.py (100%)
+ rename {tornado/test => lib/tornado/platform}/__init__.py (100%)
+ rename {tornado => lib/tornado}/platform/asyncio.py (100%)
+ rename {tornado => lib/tornado}/platform/auto.py (100%)
+ rename {tornado => lib/tornado}/platform/caresresolver.py (100%)
+ rename {tornado => lib/tornado}/platform/common.py (100%)
+ rename {tornado => lib/tornado}/platform/epoll.py (100%)
+ rename {tornado => lib/tornado}/platform/interface.py (100%)
+ rename {tornado => lib/tornado}/platform/kqueue.py (100%)
+ rename {tornado => lib/tornado}/platform/posix.py (100%)
+ rename {tornado => lib/tornado}/platform/select.py (100%)
+ rename {tornado => lib/tornado}/platform/twisted.py (100%)
+ rename {tornado => lib/tornado}/platform/windows.py (100%)
+ rename {tornado => lib/tornado}/process.py (100%)
+ rename {tornado => lib/tornado}/queues.py (100%)
+ rename {tornado => lib/tornado}/routes.py (100%)
+ rename {tornado => lib/tornado}/simple_httpclient.py (100%)
+ rename {tornado => lib/tornado}/speedups.c (100%)
+ rename {tornado => lib/tornado}/stack_context.py (100%)
+ rename {tornado => lib/tornado}/tcpclient.py (100%)
+ rename {tornado => lib/tornado}/tcpserver.py (100%)
+ rename {tornado => lib/tornado}/template.py (100%)
+ rename {tornado/platform => lib/tornado/test}/__init__.py (100%)
+ rename {tornado => lib/tornado}/test/__main__.py (100%)
+ rename {tornado => lib/tornado}/test/asyncio_test.py (100%)
+ rename {tornado => lib/tornado}/test/auth_test.py (100%)
+ rename {tornado => lib/tornado}/test/concurrent_test.py (100%)
+ rename {tornado => lib/tornado}/test/csv_translations/fr_FR.csv (100%)
+ rename {tornado => lib/tornado}/test/curl_httpclient_test.py (100%)
+ rename {tornado => lib/tornado}/test/escape_test.py (100%)
+ rename {tornado => lib/tornado}/test/gen_test.py (100%)
+ rename {tornado => lib/tornado}/test/gettext_translations/fr_FR/LC_MESSAGES/tornado_test.mo (100%)
+ rename {tornado => lib/tornado}/test/gettext_translations/fr_FR/LC_MESSAGES/tornado_test.po (100%)
+ rename {tornado => lib/tornado}/test/httpclient_test.py (100%)
+ rename {tornado => lib/tornado}/test/httpserver_test.py (100%)
+ rename {tornado => lib/tornado}/test/httputil_test.py (100%)
+ rename {tornado => lib/tornado}/test/import_test.py (100%)
+ rename {tornado => lib/tornado}/test/ioloop_test.py (100%)
+ rename {tornado => lib/tornado}/test/iostream_test.py (100%)
+ rename {tornado => lib/tornado}/test/locale_test.py (100%)
+ rename {tornado => lib/tornado}/test/locks_test.py (100%)
+ rename {tornado => lib/tornado}/test/log_test.py (100%)
+ rename {tornado => lib/tornado}/test/netutil_test.py (100%)
+ rename {tornado => lib/tornado}/test/options_test.cfg (100%)
+ rename {tornado => lib/tornado}/test/options_test.py (100%)
+ rename {tornado => lib/tornado}/test/process_test.py (100%)
+ rename {tornado => lib/tornado}/test/queues_test.py (100%)
+ rename {tornado => lib/tornado}/test/resolve_test_helper.py (100%)
+ rename {tornado => lib/tornado}/test/runtests.py (100%)
+ rename {tornado => lib/tornado}/test/simple_httpclient_test.py (100%)
+ rename {tornado => lib/tornado}/test/stack_context_test.py (100%)
+ rename {tornado => lib/tornado}/test/static/dir/index.html (100%)
+ rename {tornado => lib/tornado}/test/static/robots.txt (100%)
+ rename {tornado => lib/tornado}/test/static_foo.txt (100%)
+ rename {tornado => lib/tornado}/test/tcpclient_test.py (100%)
+ rename {tornado => lib/tornado}/test/tcpserver_test.py (100%)
+ rename {tornado => lib/tornado}/test/template_test.py (100%)
+ rename {tornado => lib/tornado}/test/templates/utf8.html (100%)
+ rename {tornado => lib/tornado}/test/test.crt (100%)
+ rename {tornado => lib/tornado}/test/test.key (100%)
+ rename {tornado => lib/tornado}/test/testing_test.py (100%)
+ rename {tornado => lib/tornado}/test/twisted_test.py (100%)
+ rename {tornado => lib/tornado}/test/util.py (100%)
+ rename {tornado => lib/tornado}/test/util_test.py (100%)
+ rename {tornado => lib/tornado}/test/web_test.py (100%)
+ rename {tornado => lib/tornado}/test/websocket_test.py (100%)
+ rename {tornado => lib/tornado}/test/wsgi_test.py (100%)
+ rename {tornado => lib/tornado}/testing.py (100%)
+ rename {tornado => lib/tornado}/util.py (100%)
+ rename {tornado => lib/tornado}/web.py (100%)
+ rename {tornado => lib/tornado}/websocket.py (100%)
+ rename {tornado => lib/tornado}/wsgi.py (100%)
+ delete mode 100644 news.md
+ create mode 100644 sickbeard/providers/gftracker.py
+ create mode 100644 sickbeard/providers/hdspace.py
+ mode change 100644 => 100755 sickbeard/providers/kat.py
+ create mode 100644 sickbeard/providers/newpct.py
