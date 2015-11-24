@@ -1,3 +1,6 @@
+/log/
+*.txt
+
 /bin/
 .classpath
 .project
