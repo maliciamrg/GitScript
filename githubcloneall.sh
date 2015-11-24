@@ -10,7 +10,6 @@ GHBU_ORG=$(echo ${GHBU_ORG})                                  # the GitHub organ
                                                                      # (if you're backing up a user's repos instead, this should be your GitHub username)
 GHBU_UNAME=$(echo ${GHBU_UNAME})                               # the username of a GitHub account (to use with the GitHub API)
 GHBU_PASSWD=$(echo ${GHBU_PASSWD})                             # the password for that account 
-
 GHBU_BACKUP_DIR=${GHBU_BACKUP_DIR-"$1"}                  # where to place the backup files
 GHBU_GITHOST=${GHBU_GITHOST-"github.com"}                            # the GitHub hostname (see comments)
 GHBU_PRUNE_OLD=${GHBU_PRUNE_OLD-true}                                # when `true`, old backups will be deleted
