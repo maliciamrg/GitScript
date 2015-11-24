@@ -1,11 +1,12 @@
 #!/bin/bash 
 # A simple script to backup an organization's GitHub repositories.
+source ./github_auth.cfg
+GHBU_ORG=$(eval echo ${GHBU_ORG})                                  # the GitHub organization whose repos will be backed up
+                                                                     # (if you're backing up a user's repos instead, this should be your GitHub username)
+GHBU_UNAME=$(eval echo ${GHBU_UNAME})                               # the username of a GitHub account (to use with the GitHub API)
+GHBU_PASSWD=$(eval echo ${GHBU_PASSWD})                             # the password for that account 
 
 GHBU_BACKUP_DIR=${GHBU_BACKUP_DIR-"/mnt/magneto/warehouse/backup_git"}                  # where to place the backup files
-GHBU_ORG=${GHBU_ORG-"maliciamrg"}                                   # the GitHub organization whose repos will be backed up
-                                                                     # (if you're backing up a user's repos instead, this should be your GitHub username)
-GHBU_UNAME=${GHBU_UNAME-"maliciamrg"}                               # the username of a GitHub account (to use with the GitHub API)
-GHBU_PASSWD=${GHBU_PASSWD-"roxanne01"}                             # the password for that account 
 GHBU_GITHOST=${GHBU_GITHOST-"github.com"}                            # the GitHub hostname (see comments)
 GHBU_PRUNE_OLD=${GHBU_PRUNE_OLD-true}                                # when `true`, old backups will be deleted
 GHBU_PRUNE_AFTER_N_DAYS=${GHBU_PRUNE_AFTER_N_DAYS-3}                 # the min age (in days) of backup files to delete
