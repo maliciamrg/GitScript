@@ -4,7 +4,7 @@ if [ "$#" -ne 2 ]; then
 	exit 0
 fi
 cd $1
-outfile="../gitallcommitpush-`date +%Y-%m-%d-%H-%M-%S`.txt"
+outfile="$(dirname $0)/log/gitallcommitpush-`date +%Y-%m-%d-%H-%M-%S`.txt"
 for f in ./*;
   do
 	if [ -d $f ]; then
