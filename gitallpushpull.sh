@@ -3,8 +3,8 @@ if [ "$#" -ne 1 ]; then
     echo "Illegal number of parameters (repertoire des git)"
 	exit 0
 fi
+outfile="$(pwd)/log/gitpushpull-`date +%Y-%m-%d-%H-%M-%S`.txt"
 cd $1
-outfile="(dirname $0)/log/gitpushpull-`date +%Y-%m-%d-%H-%M-%S`.txt"
 for f in ./*;
   do
 	if [ -d $f ]; then
