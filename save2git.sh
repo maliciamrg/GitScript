@@ -4,5 +4,5 @@ if [ "$#" -ne 1 ]; then
 	exit 0
 fi
 git add -A 
-git commit -am  "\"$2\""
+git commit -am  "\"$1\""
 git push
